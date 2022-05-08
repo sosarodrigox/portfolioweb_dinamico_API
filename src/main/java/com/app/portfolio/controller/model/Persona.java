@@ -1,9 +1,7 @@
-
 package com.app.portfolio.controller.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +17,7 @@ public class Persona {
     private String nombre;
     private  String apellido;
     private  String domicilio;
-    private  Date fechaNac;
+    private  String fechaNac;
     private  String telefono; 
     private  String personacol; 
     private  String correo;
@@ -33,7 +31,7 @@ public class Persona {
                     String nombre, 
                     String apellido,
                     String domicilio,
-                    Date fechaNac,
+                    String fechaNac,
                     String telefono,
                     String personacol,
                     String correo,
