@@ -5,6 +5,7 @@ import com.app.portfolio.service.IPersonaService;
 //import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,24 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 public class Controller {
-    
-    /*List<Persona> listaPersonas = new ArrayList();
-    
-    @GetMapping ("/hola/{nombre}/{apellido}/{edad}")
-    public String decirHola(@PathVariable String nombre,
-                            @PathVariable String apellido,
-                            @PathVariable int edad){
-        return "Hola " + nombre + " Tu apellido es: " + apellido + " y tu Edad: " + edad;
-    }
-    
-    @GetMapping("/chau")
-    public String decirChau(@RequestParam String nombre,
-                            @RequestParam String apellido,
-                            @RequestParam int edad){
-        return "Chau mundo " + nombre + " Tu apellido es: " + apellido + " y tu Edad: " + edad;
-    }
-    */
     
     @Autowired
     private IPersonaService persoServ;
@@ -54,5 +39,10 @@ public class Controller {
     @DeleteMapping  ("/delete/{id}")
     public void borrarPersona(@PathVariable Integer id){
         persoServ.borrarPersona(id);
+    }
+    
+    @GetMapping ("/traer/{id}")
+    public Persona buscarPersona(@PathVariable Integer id){
+        return persoServ.buscarPersona(id);
     }
 }

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonaService implements IPersonaService{
     
-    @Autowired
-    public PersonaRepository persoRepo;
+    @Autowired //Sirve para hacer inyección de dependencias.
+    public PersonaRepository persoRepo; //Crea un repositorio el cual nos sirve para no estar creando instancias por cada método.
     
     @Override
     public List<Persona> verPersonas() {
@@ -20,7 +20,7 @@ public class PersonaService implements IPersonaService{
 
     @Override
     public void crearPersona(Persona per) {
-        persoRepo.save(per);
+        persoRepo.save(per); //Save es similar al metodo "Create"
     } //Este método también funciona como modificar/update
 
     @Override
