@@ -32,5 +32,4 @@ public class PersonaService implements IPersonaService{
     public Persona buscarPersona(Integer id) {
         return persoRepo.findById(id).orElse(null);
     }
-
 }
