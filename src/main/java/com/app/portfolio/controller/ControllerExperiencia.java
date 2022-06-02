@@ -41,6 +41,5 @@ public class ControllerExperiencia {
     @GetMapping ("/traer-exp/{id}")
     public Experiencia buscarExperiencia(@PathVariable Integer id){
         return expServ.buscarExperiencia(id);
-    }
-     
+    } 
 }
