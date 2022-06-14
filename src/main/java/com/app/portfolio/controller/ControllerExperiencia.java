@@ -23,7 +23,7 @@ public class ControllerExperiencia {
     
     //Métodos de Experiencia:
     @PostMapping("/nueva/experiencia") //Esta anotación permite utilizar el método POST para agregar una nueva exp.
-    public void agregarExperiencia(@RequestBody Experiencia exp){
+    public void agregarExperiencia(@RequestBody Experiencia exp){//El requestbody sirve para enviar el objeto en formato json.
         expServ.crearExperiencia(exp);
     } //También funciona como modificar/update
     

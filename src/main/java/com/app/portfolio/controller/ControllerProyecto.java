@@ -20,7 +20,7 @@ public class ControllerProyecto {
     @Autowired
     private IProyectoService proyectoService;
     
-    @PostMapping("/new/proyecto")
+    @PostMapping("/nuevo/proyecto")
     public void agregarProyecto(@RequestBody Proyecto proy){
         proyectoService.crearProyecto(proy);
     }

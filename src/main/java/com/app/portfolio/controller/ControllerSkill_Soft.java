@@ -20,7 +20,7 @@ public class ControllerSkill_Soft {
     @Autowired
     private ISkill_SoftService s_SkillService;
     
-    @PostMapping("/new/s_skill")
+    @PostMapping("/nueva/s_skill")
     public void agregarSoftSkill(@RequestBody Skill_Soft skill_s){
         s_SkillService.crearSkill_Soft(skill_s);
     }

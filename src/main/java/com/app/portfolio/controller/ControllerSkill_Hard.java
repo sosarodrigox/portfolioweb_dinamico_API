@@ -20,7 +20,7 @@ public class ControllerSkill_Hard {
     @Autowired
     private ISkill_HardService h_SkillService;
     
-    @PostMapping("/new/h_skill")
+    @PostMapping("/nueva/h_skill")
     public void agregarHardSkill(@RequestBody Skill_Hard skill_h){
         h_SkillService.crearSkill_Hard(skill_h);
     }
