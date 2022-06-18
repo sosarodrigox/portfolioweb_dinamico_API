@@ -15,4 +15,5 @@ public interface IExperienciaService {
     
     public Experiencia buscarExperiencia(Integer id);
     
+    public Experiencia modificarExperiencia(Integer id, Experiencia exp);
 }

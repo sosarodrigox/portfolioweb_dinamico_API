@@ -12,5 +12,7 @@ public interface IEdu_CarrerasService {
     
     public void borrarCarrera(Integer id);
     
-    public Edu_Carreras buscarCarrera(Integer id);  
+    public Edu_Carreras buscarCarrera(Integer id);
+    
+    public Edu_Carreras modificarCarrera(Integer id, Edu_Carreras car);
 }

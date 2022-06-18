@@ -5,11 +5,13 @@ import com.app.portfolio.controller.model.Edu_Carreras;
 import com.app.portfolio.service.IEdu_CarrerasService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,4 +44,9 @@ public class ControllerEdu_Carreras {
     public Edu_Carreras buscarCarrera(@PathVariable Integer id){
         return carServ.buscarCarrera(id);
     }
+    
+    @PutMapping("modif-carrera/{id}")
+    public ResponseEntity<Edu_Carreras> modificarCarrera(@PathVariable Integer id, @RequestBody Edu_Carreras detalleCar){
+       return ResponseEntity.ok(carServ.modificarCarrera(id, detalleCar));
+    }  
 }

@@ -4,11 +4,13 @@ import com.app.portfolio.controller.model.Persona;
 import com.app.portfolio.service.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,8 +39,13 @@ public class ControllerPersona {
         persoServ.borrarPersona(id);
     }
     
-    @GetMapping ("/traer/{id}")
+     @GetMapping ("/traer-persona/{id}")
     public Persona buscarPersona(@PathVariable Integer id){
         return persoServ.buscarPersona(id);
     }
+    
+    @PutMapping("modif-persona/{id}")
+    public ResponseEntity<Persona> modificarPersona(@PathVariable Integer id, @RequestBody Persona detallePersona){
+       return ResponseEntity.ok(persoServ.modificarPersona(id, detallePersona));
+    }          
 }

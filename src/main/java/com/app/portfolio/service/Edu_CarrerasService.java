@@ -33,4 +33,19 @@ public class Edu_CarrerasService implements IEdu_CarrerasService{
     public Edu_Carreras buscarCarrera(Integer id) {
         return carrerasRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public Edu_Carreras modificarCarrera(Integer id, Edu_Carreras car) {
+        Edu_Carreras carrera = carrerasRepo.findById(id).orElse(null);
+        
+        carrera.setUniversidad(car.getUniversidad());
+        carrera.setCarrera(car.getCarrera());
+        carrera.setLink_info(car.getLink_info());
+        carrera.setFecha_inicio(car.getFecha_inicio());
+        carrera.setFecha_fin(car.getFecha_fin());
+        carrera.setImg_logo(car.getImg_logo());
+        
+        Edu_Carreras carreraActualizada = carrerasRepo.save(carrera);
+        return carreraActualizada;
+    }
 }

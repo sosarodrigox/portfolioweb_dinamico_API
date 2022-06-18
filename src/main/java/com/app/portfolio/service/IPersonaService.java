@@ -13,4 +13,6 @@ public interface IPersonaService {
     public void borrarPersona(Integer id);
     
     public Persona buscarPersona(Integer id);
+    
+    public Persona modificarPersona(Integer id, Persona per);
 }
