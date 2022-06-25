@@ -15,4 +15,5 @@ public interface ISkill_HardService {
     
     public Skill_Hard buscarSkill_Hard(Integer id);
     
+    public Skill_Hard modificarSkill_Hard(Integer id, Skill_Hard hardSkill);
 }

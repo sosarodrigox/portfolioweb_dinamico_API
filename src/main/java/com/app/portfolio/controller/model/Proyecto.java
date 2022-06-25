@@ -48,13 +48,3 @@ public class Proyecto implements Serializable {
         this.github_link = github_link;
     }
 }
-
-/*
-{
-    "tipo": "Tipo Proyecto 1",
-    "nombre": "Nombre Proyecto 1",
-    "descripcion": "Descripción Proyecto 1",
-    "tecnologias": "HTML | CSS |",
-    "linkGitHub": "https://Proyecto 1.com"
-}
-*/

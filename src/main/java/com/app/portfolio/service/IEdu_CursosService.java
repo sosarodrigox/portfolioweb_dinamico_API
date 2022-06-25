@@ -12,6 +12,7 @@ public interface IEdu_CursosService {
     
     public void borrarCurso(Integer id);
     
-    public Edu_Cursos buscarCurso(Integer id);  
+    public Edu_Cursos buscarCurso(Integer id);
     
+    public Edu_Cursos modificarCurso(Integer id, Edu_Cursos cur);
 }

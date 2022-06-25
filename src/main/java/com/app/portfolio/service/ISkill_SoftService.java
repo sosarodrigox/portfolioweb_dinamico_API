@@ -15,4 +15,5 @@ public interface ISkill_SoftService {
     
     public Skill_Soft buscarSkill_Soft(Integer id);
     
+    public Skill_Soft modificarSkill_Soft(Integer id, Skill_Soft softSkill);
 }

@@ -4,11 +4,13 @@ import com.app.portfolio.controller.model.Skill_Hard;
 import com.app.portfolio.service.ISkill_HardService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,4 +42,9 @@ public class ControllerSkill_Hard {
     public Skill_Hard buscarSkillHard(@PathVariable Integer id){
         return h_SkillService.buscarSkill_Hard(id);
     }
+    
+     @PutMapping("modif-hardskill/{id}")
+    public ResponseEntity<Skill_Hard> modificarSkillHard(@PathVariable Integer id, @RequestBody Skill_Hard detalleHS){
+       return ResponseEntity.ok(h_SkillService.modificarSkill_Hard(id, detalleHS));
+    } 
 }

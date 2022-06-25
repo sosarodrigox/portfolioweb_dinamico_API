@@ -52,14 +52,3 @@ public class Edu_Cursos implements Serializable {
         this.img_logo = img_logo;
     }
 }
-
-/*
-{
-    "institucion": "META",
-    "nom_curso": "Realidad Virtual",
-    "descripcion": "Descripcion del curso",
-    "duracion": "4 modulos...",
-    "fechaInicio": "2022",
-    "imgLogo": "https://i.ibb.co/Xy1Tdqs/curso.png"
-}
-*/

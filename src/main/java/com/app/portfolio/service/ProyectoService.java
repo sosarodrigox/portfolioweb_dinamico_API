@@ -32,4 +32,18 @@ public class ProyectoService implements IProyectoService{
     public Proyecto buscarProyecto(Integer id) {
         return proyRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public Proyecto modificarProyecto(Integer id, Proyecto proy) {
+        Proyecto proyecto = proyRepo.findById(id).orElse(null);
+        
+        proyecto.setTipo(proy.getTipo());
+        proyecto.setNombre(proy.getNombre());
+        proyecto.setDescripcion(proy.getDescripcion());
+        proyecto.setTecnologias(proy.getTecnologias());
+        proyecto.setGithub_link(proy.getGithub_link());
+        
+        Proyecto proyectoActualizado = proyRepo.save(proyecto);
+        return proyectoActualizado;
+    }
 }

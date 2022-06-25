@@ -40,11 +40,3 @@ public class Skill_Hard implements Serializable {
         this.porcentaje = porcentaje;
     }
 }
-
-/*
-{
-    "skill": "habilidad dura 1",
-    "descripcion": "Descripcion habilidad dura 1",
-    "porcentaje": "50"
-},
- */

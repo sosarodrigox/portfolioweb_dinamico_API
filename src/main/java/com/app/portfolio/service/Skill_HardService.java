@@ -34,4 +34,16 @@ public class Skill_HardService implements ISkill_HardService{
     public Skill_Hard buscarSkill_Hard(Integer id) {
         return skillHard_Repo.findById(id).orElse(null); //Si encuentra devuelve una skill, si no devuelve null
     }
+
+    @Override
+    public Skill_Hard modificarSkill_Hard(Integer id, Skill_Hard hardSkill) {
+        Skill_Hard skillHard = skillHard_Repo.findById(id).orElse(null);
+        
+        skillHard.setSkill(hardSkill.getSkill());
+        skillHard.setDescripcion(hardSkill.getDescripcion());
+        skillHard.setPorcentaje(hardSkill.getPorcentaje());
+        
+        Skill_Hard skillHardActualizada = skillHard_Repo.save(skillHard);
+        return skillHardActualizada;
+    }
 }

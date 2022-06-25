@@ -14,4 +14,6 @@ public interface IProyectoService {
     public void borrarProyecto(Integer id);
     
     public Proyecto buscarProyecto(Integer id);
+    
+    public Proyecto modificarProyecto(Integer id, Proyecto proy);
 }

@@ -5,11 +5,13 @@ import com.app.portfolio.controller.model.Edu_Cursos;
 import com.app.portfolio.service.IEdu_CursosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,4 +44,9 @@ public class ControllerEdu_Cursos {
     public Edu_Cursos buscarCurso(@PathVariable Integer id){
         return curServ.buscarCurso(id);
     }
+    
+    @PutMapping("modif-curso/{id}")
+    public ResponseEntity<Edu_Cursos> modificarCurso(@PathVariable Integer id, @RequestBody Edu_Cursos detalleCur){
+       return ResponseEntity.ok(curServ.modificarCurso(id, detalleCur));
+    }  
 }

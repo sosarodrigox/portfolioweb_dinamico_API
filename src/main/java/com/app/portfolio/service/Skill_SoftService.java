@@ -34,4 +34,15 @@ public class Skill_SoftService implements ISkill_SoftService{
         return skillSoftRepo.findById(id).orElse(null); //Si encuentra devuelve una skill, si no devuelve null
     }
 
+    @Override
+    public Skill_Soft modificarSkill_Soft(Integer id, Skill_Soft softSkill) {
+        Skill_Soft skillSoft = skillSoftRepo.findById(id).orElse(null);
+        
+        skillSoft.setSkill(softSkill.getSkill());
+        skillSoft.setDescripcion(softSkill.getDescripcion());
+        skillSoft.setPorcentaje(softSkill.getPorcentaje());
+        
+        Skill_Soft skillSoftActualizada = skillSoftRepo.save(skillSoft);
+        return skillSoftActualizada;
+    }
 }

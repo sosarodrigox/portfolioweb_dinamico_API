@@ -36,4 +36,19 @@ public class Edu_CursosService implements IEdu_CursosService{
         return cursosRepo.findById(id).orElse(null);
     }
 
+    @Override
+    public Edu_Cursos modificarCurso(Integer id, Edu_Cursos cur) {
+        Edu_Cursos curso = cursosRepo.findById(id).orElse(null);
+        
+        curso.setInstitucion(cur.getInstitucion());
+        curso.setNom_curso(cur.getNom_curso());
+        curso.setDescripcion(cur.getDescripcion());
+        curso.setDuracion(cur.getDuracion());
+        curso.setFecha_inicio(cur.getFecha_inicio());
+        curso.setImg_logo(cur.getImg_logo());
+        
+        Edu_Cursos cursoActualizado = cursosRepo.save(curso);
+        return cursoActualizado;
+    }
+
 }
