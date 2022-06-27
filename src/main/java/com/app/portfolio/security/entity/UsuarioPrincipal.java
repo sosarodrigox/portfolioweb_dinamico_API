@@ -1,5 +1,5 @@
 
-package security.entity;
+package com.app.portfolio.security.entity;
 
 import java.util.Collection;
 import java.util.List;

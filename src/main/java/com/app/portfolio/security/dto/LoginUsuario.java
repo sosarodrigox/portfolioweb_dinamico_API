@@ -1,5 +1,5 @@
 
-package security.dto;
+package com.app.portfolio.security.dto;
 
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;

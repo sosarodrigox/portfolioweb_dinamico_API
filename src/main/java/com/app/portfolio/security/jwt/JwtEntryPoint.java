@@ -1,5 +1,5 @@
 
-package security.jwt;
+package com.app.portfolio.security.jwt;
 
 import java.io.IOException;
 import org.slf4j.Logger;

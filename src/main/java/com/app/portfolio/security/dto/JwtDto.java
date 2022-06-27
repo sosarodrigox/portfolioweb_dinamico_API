@@ -1,5 +1,5 @@
 
-package security.dto;
+package com.app.portfolio.security.dto;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;

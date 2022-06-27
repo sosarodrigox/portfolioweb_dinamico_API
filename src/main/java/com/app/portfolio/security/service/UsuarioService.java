@@ -1,12 +1,12 @@
 
-package security.service;
+package com.app.portfolio.security.service;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import security.entity.Usuario;
-import security.repository.UsuarioRepository;
+import com.app.portfolio.security.entity.Usuario;
+import com.app.portfolio.security.repository.UsuarioRepository;
 
 @Service
 @Transactional

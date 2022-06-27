@@ -1,5 +1,5 @@
 
-package security.dto;
+package com.app.portfolio.security.dto;
 
 import java.util.HashSet;
 import java.util.Set;

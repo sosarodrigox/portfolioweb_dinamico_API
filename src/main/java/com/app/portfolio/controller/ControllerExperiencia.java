@@ -6,6 +6,7 @@ import com.app.portfolio.service.IExperienciaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class ControllerExperiencia {
     private IExperienciaService expServ; //Este servicio contiene los métodos de experiencia.
     
     //Métodos de Experiencia:
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nueva/experiencia") //Esta anotación permite utilizar el método POST para agregar una nueva exp.
     public void agregarExperiencia(@RequestBody Experiencia exp){//El requestbody sirve para enviar el objeto en formato json.
         expServ.crearExperiencia(exp);
@@ -35,6 +37,7 @@ public class ControllerExperiencia {
         return expServ.verListaExperiencia();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping  ("/borrar-exp/{id}")
     public void borrarExperiencia(@PathVariable Integer id){
         expServ.borrarExperiencia(id);
@@ -45,6 +48,7 @@ public class ControllerExperiencia {
         return expServ.buscarExperiencia(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("modif-exp/{id}")
     public ResponseEntity<Experiencia> modificarExperiencia(@PathVariable Integer id, @RequestBody Experiencia detalleExp){
        return ResponseEntity.ok(expServ.modificarExperiencia(id, detalleExp));

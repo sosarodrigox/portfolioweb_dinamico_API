@@ -5,6 +5,7 @@ import com.app.portfolio.service.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ public class ControllerPersona {
     private IPersonaService persoServ; //Este servicio contiene los métodos de persona (header, aboutMe), experiencia, etc.
     
     //Métodos de Personas:
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new/persona") //Esta anotación permite utilizar el método POST para agregar una persona.
     public void agregarPersona(@RequestBody Persona pers){
         persoServ.crearPersona(pers);
@@ -34,6 +36,7 @@ public class ControllerPersona {
         return persoServ.verPersonas();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping  ("/delete/{id}")
     public void borrarPersona(@PathVariable Integer id){
         persoServ.borrarPersona(id);
@@ -44,6 +47,7 @@ public class ControllerPersona {
         return persoServ.buscarPersona(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("modif-persona/{id}")
     public ResponseEntity<Persona> modificarPersona(@PathVariable Integer id, @RequestBody Persona detallePersona){
        return ResponseEntity.ok(persoServ.modificarPersona(id, detallePersona));

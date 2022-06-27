@@ -1,5 +1,5 @@
 
-package security.controller;
+package com.app.portfolio.security.controller;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import security.dto.JwtDto;
-import security.dto.LoginUsuario;
-import security.dto.NuevoUsuario;
-import security.entity.Rol;
-import security.entity.Usuario;
-import security.enums.RolNombre;
-import security.jwt.JwtProvider;
-import security.service.RolService;
-import security.service.UsuarioService;
+import com.app.portfolio.security.dto.JwtDto;
+import com.app.portfolio.security.dto.LoginUsuario;
+import com.app.portfolio.security.dto.NuevoUsuario;
+import com.app.portfolio.security.entity.Rol;
+import com.app.portfolio.security.entity.Usuario;
+import com.app.portfolio.security.enums.RolNombre;
+import com.app.portfolio.security.jwt.JwtProvider;
+import com.app.portfolio.security.service.RolService;
+import com.app.portfolio.security.service.UsuarioService;
 
 @RestController
 @RequestMapping("/auth/")

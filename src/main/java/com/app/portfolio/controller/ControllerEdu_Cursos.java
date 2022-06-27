@@ -6,6 +6,7 @@ import com.app.portfolio.service.IEdu_CursosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class ControllerEdu_Cursos {
     private IEdu_CursosService curServ; //Este servicio contiene los métodos de Edu_Cursos.
     
     //Métodos de Edu_Cursos:
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo/curso") //Esta anotación permite utilizar el método POST para agregar un nuevo curso.
     public void agregarCurso(@RequestBody Edu_Cursos cur){
         curServ.crearCurso(cur);
@@ -35,6 +37,7 @@ public class ControllerEdu_Cursos {
         return curServ.verCursos();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping  ("/borrar-curso/{id}")
     public void borrarCurso(@PathVariable Integer id){
         curServ.borrarCurso(id);
@@ -45,6 +48,7 @@ public class ControllerEdu_Cursos {
         return curServ.buscarCurso(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("modif-curso/{id}")
     public ResponseEntity<Edu_Cursos> modificarCurso(@PathVariable Integer id, @RequestBody Edu_Cursos detalleCur){
        return ResponseEntity.ok(curServ.modificarCurso(id, detalleCur));

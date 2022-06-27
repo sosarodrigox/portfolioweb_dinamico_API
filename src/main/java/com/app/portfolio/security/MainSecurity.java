@@ -1,5 +1,5 @@
 
-package security;
+package com.app.portfolio.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,9 +14,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import security.jwt.JwtEntryPoint;
-import security.jwt.JwtTokenFilter;
-import security.service.UserDetailsServiceImpl;
+import com.app.portfolio.security.jwt.JwtEntryPoint;
+import com.app.portfolio.security.jwt.JwtTokenFilter;
+import com.app.portfolio.security.service.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity

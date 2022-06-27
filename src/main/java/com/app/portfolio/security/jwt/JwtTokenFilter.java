@@ -1,5 +1,5 @@
 
-package security.jwt;
+package com.app.portfolio.security.jwt;
 
 import java.io.IOException;
 import javax.servlet.FilterChain;
@@ -13,7 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
-import security.service.UserDetailsServiceImpl;
+import com.app.portfolio.security.service.UserDetailsServiceImpl;
 
 public class JwtTokenFilter extends OncePerRequestFilter{
 
@@ -38,7 +38,7 @@ public class JwtTokenFilter extends OncePerRequestFilter{
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
         }catch(Exception e){
-            logger.error("Fail en el método doFilter");
+            logger.error("Fail en el método doFilter" + e.getMessage());
         }
         filterChain.doFilter(req, res);
     }

@@ -5,6 +5,7 @@ import com.app.portfolio.service.ISkill_SoftService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ public class ControllerSkill_Soft {
     @Autowired
     private ISkill_SoftService s_SkillService;
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nueva/s_skill")
     public void agregarSoftSkill(@RequestBody Skill_Soft skill_s){
         s_SkillService.crearSkill_Soft(skill_s);
@@ -33,6 +35,7 @@ public class ControllerSkill_Soft {
         return s_SkillService.verListaSkill_Soft();
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/borrar-skill-s/{id}")
     public void borrarSkillSoft(@PathVariable Integer  id){
         s_SkillService.borrarSkill_Soft(id);
@@ -43,6 +46,7 @@ public class ControllerSkill_Soft {
         return s_SkillService.buscarSkill_Soft(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("modif-softskill/{id}")
     public ResponseEntity<Skill_Soft> modificarSkillSoft(@PathVariable Integer id, @RequestBody Skill_Soft detalleSS){
        return ResponseEntity.ok(s_SkillService.modificarSkill_Soft(id, detalleSS));

@@ -1,10 +1,10 @@
 
-package security.repository;
+package com.app.portfolio.security.repository;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import security.entity.Usuario;
+import com.app.portfolio.security.entity.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
