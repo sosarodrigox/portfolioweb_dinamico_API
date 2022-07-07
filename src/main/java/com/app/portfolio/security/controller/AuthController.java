@@ -49,7 +49,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
     
-    private String mensaje;
+    public String mensaje;
     
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
@@ -59,11 +59,11 @@ public class AuthController {
         }
         if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())){
             mensaje="El nombre de usuario ya existe tinky winky";
-            return new ResponseEntity(mensaje, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("El nombre de usuario ya existe tinky winky", HttpStatus.BAD_REQUEST);
         }
         if(usuarioService.existsByEmail(nuevoUsuario.getEmail())){
             mensaje="El correo ingresado ya existe tinky winky";
-            return new ResponseEntity(mensaje, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("El correo ingresado ya existe tinky winky", HttpStatus.BAD_REQUEST);
         }
         Usuario usuario =
                 new Usuario(
