@@ -1,4 +1,3 @@
-
 package com.app.portfolio.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,8 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/**").permitAll()
+                //.anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
                 .and()
